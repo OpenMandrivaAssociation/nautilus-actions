@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 1.4
+%define version 1.4.1
 %define rel 1
 %define release %mkrel %rel
 #fixed2
