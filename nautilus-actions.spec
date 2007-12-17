@@ -13,7 +13,6 @@ Source0: ftp://ftp2.grumz.net/grumz/%{name}-%{version}.tar.bz2
 License: GPL
 Group: Graphical desktop/GNOME
 Url: http://www.grumz.net/?q=taxonomy/term/2/9
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: nautilus-devel >= 2.8.0
 BuildRequires: e2fsprogs-devel
 BuildRequires: intltool
