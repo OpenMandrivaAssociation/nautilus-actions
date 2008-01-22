@@ -1,9 +1,6 @@
 %define name nautilus-actions
 %define version 1.4.1
-%define rel 1
-%define release %mkrel %rel
-#fixed2
-%{?!mkrel:%define mkrel(c:) %{-c: 0.%{-c*}.}%{!?_with_unstable:%(perl -e '$_="%{1}";m/(.\*\\D\+)?(\\d+)$/;$rel=${2}-1;re;print "$1$rel";').%{?subrel:%subrel}%{!?subrel:1}.%{?distversion:%distversion}%{?!distversion:%(echo $[%{mdkversion}/10])}}%{?_with_unstable:%{1}}%{?distsuffix:%distsuffix}%{?!distsuffix:mdk}}
+%define release %mkrel 2
 
 Summary: Configurable context menu for Nautilus
 Name: %{name}
@@ -28,37 +25,31 @@ into Nautilus interface.
 %setup -q
 
 %build
-%configure2_5x --with-nautilus-extdir=%_libdir/nautilus/extensions-1.0/ \
-%if %mdkversion <= 1020
---disable-commandline-tool
-%endif
+%configure2_5x --with-nautilus-extdir=%_libdir/nautilus/extensions-2.0/
 
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
-rm -f %buildroot%_libdir/nautilus/extensions-1.0/libnautilus-actions.la
+rm -f %buildroot%_libdir/nautilus/extensions-2.0/libnautilus-actions.la
 %find_lang %name
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-gtk-update-icon-cache --force --quiet %{_datadir}/icons/hicolor
+%update_icon_cache hicolor
 %postun
-if [ -x %{_bindir}/gtk-update-icon-cache ]; then 
-  gtk-update-icon-cache --force --quiet %{_datadir}/icons/hicolor
-fi
+%clean_icon_cache hicolor
 
 %files -f %name.lang
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README
-%if %mdkversion > 1020
 %_bindir/nautilus-actions-convert
 %_bindir/nautilus-actions-new-config
-%endif
 %_bindir/nautilus-actions-config
 %_datadir/applications/nact.desktop
-%_libdir/nautilus/extensions-1.0/libnautilus-actions.so
+%_libdir/nautilus/extensions-2.0/libnautilus-actions.so
 %_datadir/%name
 %_datadir/icons/hicolor/*/apps/%name.*
