@@ -14,6 +14,7 @@ Url: http://www.nautilus-actions.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: nautilus-devel >= 2.8.0
 BuildRequires: libgnomeui2-devel
+BuildRequires: libglade2.0-devel
 BuildRequires: e2fsprogs-devel
 BuildRequires: intltool
 BuildRequires: gnome-common
