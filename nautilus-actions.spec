@@ -1,19 +1,16 @@
 %define name nautilus-actions
-%define version 1.9
-%define svn r510
-%define release %mkrel 0.%svn.1
+%define version 1.10.1
+%define release %mkrel 1
 
 Summary: Configurable context menu for Nautilus
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: ftp://ftp2.grumz.net/grumz/%{name}-%{svn}.tar.bz2
-Patch: nautilus-actions-r510-fix-language-list.patch
-Patch1: nautilus-actions-r510-fix-linking.patch
+Source0: ftp://pwi.dyndns.biz/tarballs/nautilus-actions/%{name}-%{version}.tar.gz
 Patch2: nautilus-actions-r510-fix-desktop-entry.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
-Url: http://www.grumz.net/?q=taxonomy/term/2/9
+Url: http://www.nautilus-actions.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: nautilus-devel >= 2.8.0
 BuildRequires: libgnomeui2-devel
@@ -28,11 +25,8 @@ manager. It allow to configure program to be launch on files selected
 into Nautilus interface.
 
 %prep
-%setup -q -n %name
-%patch -p0
-%patch1 -p0
+%setup -q
 %patch2 -p0
-./autogen.sh
 
 %build
 %configure2_5x --enable-commandline-tool
