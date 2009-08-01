@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 1.10.1
+%define version 1.11.2
 %define release %mkrel 1
 
 Summary: Configurable context menu for Nautilus
@@ -7,7 +7,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: ftp://pwi.dyndns.biz/tarballs/nautilus-actions/%{name}-%{version}.tar.gz
-Patch2: nautilus-actions-r510-fix-desktop-entry.patch
+Patch0: nautilus-actions-1.11.2-fix-str-fmt.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://www.nautilus-actions.org/
@@ -27,10 +27,10 @@ into Nautilus interface.
 
 %prep
 %setup -q
-%patch2 -p0
+%patch0 -p0
 
 %build
-%configure2_5x --enable-commandline-tool
+%configure2_5x
 %make
 
 %install
@@ -42,18 +42,18 @@ rm -f %buildroot%_libdir/nautilus/extensions-2.0/libnautilus-actions.la
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%if %mdkversion < 200900
 %post
 %update_icon_cache hicolor
 %postun
 %clean_icon_cache hicolor
+%endif
 
 %files -f %name.lang
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README
-%_bindir/nautilus-actions-check-actions-change
-%_bindir/nautilus-actions-new-config
-%_bindir/nautilus-actions-config
-%_datadir/applications/nact.desktop
+%_bindir/*
+%_datadir/applications/*.desktop
 %_libdir/nautilus/extensions-2.0/libnautilus-actions.so
 %_datadir/%name
 %_datadir/icons/hicolor/*/apps/%name.*
