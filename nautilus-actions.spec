@@ -1,12 +1,12 @@
 %define name nautilus-actions
-%define version 1.11.2
+%define version 1.12.0
 %define release %mkrel 1
 
 Summary: Configurable context menu for Nautilus
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: ftp://pwi.dyndns.biz/tarballs/nautilus-actions/%{name}-%{version}.tar.gz
+Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch0: nautilus-actions-1.11.2-fix-str-fmt.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -31,13 +31,14 @@ into Nautilus interface.
 %patch0 -p0
 
 %build
-%configure2_5x
+%configure2_5x --disable-schemas-install
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 rm -f %buildroot%_libdir/nautilus/extensions-2.0/libnautilus-actions.la
+rm -rf %buildroot%_datadir/doc/%{name}*
 %find_lang %name
 
 %clean
@@ -52,7 +53,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %name.lang
 %defattr(-,root,root)
-%doc AUTHORS ChangeLog README
+%doc AUTHORS README TODO NEWS MAINTAINERS
+%doc doc/objects-hierarchy.odg
 %_bindir/*
 %_datadir/applications/*.desktop
 %_libdir/nautilus/extensions-2.0/libnautilus-actions.so
