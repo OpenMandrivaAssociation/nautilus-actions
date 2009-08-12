@@ -16,7 +16,11 @@ BuildRequires: nautilus-devel >= 2.8.0
 BuildRequires: unique-devel
 BuildRequires: libgnomeui2-devel
 BuildRequires: libglade2.0-devel
+%if %mdvver >= 201000
+BuildRequires: libuuid-devel
+%else
 BuildRequires: e2fsprogs-devel
+%endif
 BuildRequires: intltool
 BuildRequires: gnome-common
 Requires: nautilus
