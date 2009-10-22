@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 1.12.0
+%define version 1.12.2
 %define release %mkrel 1
 
 Summary: Configurable context menu for Nautilus
@@ -7,7 +7,6 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-Patch0: nautilus-actions-1.11.2-fix-str-fmt.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://www.nautilus-actions.org/
@@ -32,7 +31,6 @@ into Nautilus interface.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 %configure2_5x --disable-schemas-install
