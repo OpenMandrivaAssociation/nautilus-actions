@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 1.12.2
+%define version 1.12.3
 %define release %mkrel 1
 
 Summary: Configurable context menu for Nautilus
