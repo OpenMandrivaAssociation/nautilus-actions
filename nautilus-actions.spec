@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 2.29.2
+%define version 2.29.3
 %define release %mkrel 1
 
 %define major 1
@@ -8,7 +8,6 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-Patch: nautilus-actions-2.29.2-format-strings.patch
 Patch1: nautilus-actions-2.29.2-desktop-entry.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -43,7 +42,6 @@ Install this if you want to build extensions for %name.
 
 %prep
 %setup -q
-%patch -p1
 %patch1 -p1
 
 %build
