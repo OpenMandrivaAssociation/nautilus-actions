@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 2.30.0
+%define version 2.30.1
 %define release %mkrel 1
 
 %define major 1
@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/objects-hierarchy.odg
 %_bindir/*
 %_datadir/applications/*.desktop
-%_libdir/nautilus/extensions-2.0/libnautilus-actions.so
+%_libdir/nautilus/extensions-2.0/libnautilus-actions-menu.so
 %_libdir/nautilus/extensions-2.0/libnautilus-actions-tracker.so
 %_datadir/%name
 %_datadir/icons/hicolor/*/apps/%name.*
