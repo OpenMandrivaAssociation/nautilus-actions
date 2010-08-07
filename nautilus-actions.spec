@@ -18,6 +18,7 @@ BuildRequires: nautilus-devel >= 2.8.0
 BuildRequires: unique-devel
 BuildRequires: libgtop2.0-devel
 BuildRequires: gtk+2-devel
+BuildRequires: libGConf2-devel
 %if %mdvver >= 201000
 BuildRequires: libuuid-devel
 %else
