@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 2.99.0
+%define version 2.99.1
 %define release %mkrel 1
 
 %define major 1
@@ -8,7 +8,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-Patch0: nautilus-actions-2.99.0-linking.patch
+Patch0: nautilus-actions-2.99.1-linking.patch
 Patch1: nautilus-actions-2.30.0-desktop-entry.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -16,8 +16,8 @@ Url: http://www.nautilus-actions.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: nautilus-devel >= 2.8.0
 BuildRequires: unique-devel
-BuildRequires: libgnomeui2-devel
-BuildRequires: libglade2.0-devel
+BuildRequires: libgtop2.0-devel
+BuildRequires: gtk+2-devel
 %if %mdvver >= 201000
 BuildRequires: libuuid-devel
 %else
@@ -78,7 +78,10 @@ rm -rf $RPM_BUILD_ROOT
 %_datadir/%name
 %_datadir/icons/hicolor/*/apps/%name.*
 %_libdir/%name
-
+%dir %_datadir/gnome/help/nautilus-actions-config-tool
+%_datadir/gnome/help/nautilus-actions-config-tool/C
+%dir %_datadir/omf/nautilus-actions-config-tool
+%_datadir/omf/nautilus-actions-config-tool/nautilus-actions-config-tool-C.omf
 
 %files devel
 %defattr(-,root,root)
