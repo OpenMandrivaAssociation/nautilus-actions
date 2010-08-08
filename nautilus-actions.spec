@@ -25,6 +25,7 @@ BuildRequires: libuuid-devel
 BuildRequires: e2fsprogs-devel
 %endif
 BuildRequires: intltool
+BuildRequires: gnome-doc-utils
 BuildRequires: gnome-common
 Requires: nautilus
 
