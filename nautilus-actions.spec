@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 2.99.1
+%define version 2.99.2
 %define release %mkrel 1
 
 %define major 1
@@ -10,6 +10,7 @@ Release: %{release}
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch0: nautilus-actions-2.99.1-linking.patch
 Patch1: nautilus-actions-2.30.0-desktop-entry.patch
+Patch2: nautilus-actions-2.99.2-fix-build.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://www.nautilus-actions.org/
@@ -88,3 +89,4 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(-,root,root)
 %_includedir/%name
+%_datadir/gtk-doc/html/nautilus-actions-3
