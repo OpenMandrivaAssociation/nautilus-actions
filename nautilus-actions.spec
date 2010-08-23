@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 2.99.4
+%define version 2.99.5
 %define release %mkrel 1
 
 %define major 1
