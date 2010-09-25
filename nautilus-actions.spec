@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 2.99.5
+%define version 3.0
 %define release %mkrel 1
 
 %define major 1
@@ -8,7 +8,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-Patch0: nautilus-actions-2.99.1-linking.patch
+Patch0: nautilus-actions-3.0-linking.patch
 Patch1: nautilus-actions-2.30.0-desktop-entry.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -53,11 +53,16 @@ autoreconf
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT %name.lang
 %makeinstall_std
 rm -f %buildroot%_libdir/{nautilus/extensions-2.0,%name}/lib*.la
 rm -rf %buildroot%_datadir/doc/%{name}*
 %find_lang %name
+%find_lang nautilus-actions-config-tool --with-gnome
+cat nautilus-actions-config-tool.lang >> %name.lang
+for omf in %buildroot%_datadir/omf/*/*-??*.omf;do 
+echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name.lang
+done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
