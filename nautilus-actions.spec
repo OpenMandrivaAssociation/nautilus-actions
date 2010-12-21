@@ -19,6 +19,7 @@ BuildRequires: unique-devel
 BuildRequires: libgtop2.0-devel
 BuildRequires: gtk+2-devel
 BuildRequires: libGConf2-devel
+BuildRequires: libsm-devel
 %if %mdvver >= 201000
 BuildRequires: libuuid-devel
 %else
