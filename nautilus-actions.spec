@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 3.0.2
+%define version 3.0.3
 %define release %mkrel 1
 
 %define major 1
@@ -77,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %name.lang
 %defattr(-,root,root)
 %doc AUTHORS README TODO NEWS MAINTAINERS
-%doc doc/objects-hierarchy.odg
+%doc docs/objects-hierarchy.odg
 %_bindir/*
 %_datadir/applications/*.desktop
 %_libdir/nautilus/extensions-2.0/libnautilus-actions-menu.so
