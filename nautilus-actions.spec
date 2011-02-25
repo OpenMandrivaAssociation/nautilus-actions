@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 3.0.7
+%define version 3.1.0
 %define release %mkrel 1
 
 %define major 1
@@ -8,7 +8,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-Patch1: nautilus-actions-3.0.5-desktop-entry.patch
+Patch1: nautilus-actions-3.1.0-desktop-entry.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://www.nautilus-actions.org/
@@ -45,7 +45,7 @@ Install this if you want to build extensions for %name.
 
 %prep
 %setup -q
-%apply_patches
+%patch1 -p2
 
 %build
 %configure2_5x --disable-schemas-install
