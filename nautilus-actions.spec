@@ -1,6 +1,6 @@
 %define name nautilus-actions
 %define version 3.1.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major 1
 Summary: Configurable context menu for Nautilus
@@ -8,6 +8,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+Patch0: nautilus-actions-3.1.0-fix-function-name.patch
 Patch1: nautilus-actions-3.1.0-desktop-entry.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -45,6 +46,7 @@ Install this if you want to build extensions for %name.
 
 %prep
 %setup -q
+%patch0 -p1
 %patch1 -p2
 
 %build
@@ -72,6 +74,9 @@ rm -rf $RPM_BUILD_ROOT
 %postun
 %clean_icon_cache hicolor
 %endif
+
+%triggerun -- %name < 3.1.0
+%_libdir/%name/na-gconf2key.sh -delete -nodummy &>/dev/null ||:
 
 %files -f %name.lang
 %defattr(-,root,root)
