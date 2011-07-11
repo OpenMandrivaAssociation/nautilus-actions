@@ -1,5 +1,5 @@
 %define name nautilus-actions
-%define version 3.1.3
+%define version 3.1.4
 %define release %mkrel 1
 
 %define major 1
@@ -7,7 +7,7 @@ Summary: Configurable context menu for Nautilus
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 Patch1: nautilus-actions-3.1.0-desktop-entry.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
