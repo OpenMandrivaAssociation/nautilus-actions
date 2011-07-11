@@ -27,6 +27,7 @@ BuildRequires: e2fsprogs-devel
 BuildRequires: intltool
 BuildRequires: gnome-doc-utils
 BuildRequires: gnome-common
+BuildRequires: docbook-dtd45-xml
 Requires: nautilus
 
 %description
