@@ -57,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT %name.lang
 %makeinstall_std
 rm -f %buildroot%_libdir/{nautilus/extensions-3.0,%name}/lib*.la
 rm -rf %buildroot%_datadir/doc/%{name}*
-%find_lang %name
+%find_lang %name --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -80,3 +80,5 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(-,root,root)
 %_includedir/%name
+%_datadir/gtk-doc/html/nautilus-actions-3/
+
