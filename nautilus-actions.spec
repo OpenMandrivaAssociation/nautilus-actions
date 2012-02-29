@@ -57,7 +57,9 @@ rm -rf $RPM_BUILD_ROOT %name.lang
 %makeinstall_std
 rm -f %buildroot%_libdir/{nautilus/extensions-3.0,%name}/lib*.la
 rm -rf %buildroot%_datadir/doc/%{name}*
-%find_lang %name --with-gnome
+%find_lang %name 
+%find_lang nautilus-actions-config-tool --with-gnome
+cat nautilus-actions-config-tool.lang >> %name.lang
 
 %clean
 rm -rf $RPM_BUILD_ROOT
