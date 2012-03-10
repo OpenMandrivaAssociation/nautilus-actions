@@ -8,7 +8,6 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
-Patch1: nautilus-actions-3.1.0-desktop-entry.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://www.nautilus-actions.org/
@@ -46,7 +45,7 @@ Install this if you want to build extensions for %name.
 
 %prep
 %setup -q
-%patch1 -p2
+%apply_patches
 
 %build
 %configure2_5x --disable-schemas-install
