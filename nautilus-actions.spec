@@ -11,21 +11,17 @@ Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://www.nautilus-actions.org/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: nautilus-devel >= 2.8.0
 BuildRequires: unique-devel
 BuildRequires: libgtop2.0-devel
-BuildRequires: gtk+2-devel
-BuildRequires: libGConf2-devel
+BuildRequires: pkgconfig(gtk+-2.0)
+BuildRequires: pkgconfig(gconf-2.0)
 BuildRequires: libsm-devel
-%if %mdvver >= 201000
-BuildRequires: libuuid-devel
-%else
-BuildRequires: e2fsprogs-devel
-%endif
+BuildRequires: pkgconfig(uuid)
 BuildRequires: intltool
-BuildRequires: gnome-doc-utils
+BuildRequires: pkgconfig(gnome-doc-utils)
 BuildRequires: gnome-common
+BuildRequires: rarian
 BuildRequires: docbook-dtd45-xml
 Requires: nautilus
 
@@ -52,7 +48,7 @@ Install this if you want to build extensions for %name.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT %name.lang
+rm -rf %{buildroot} %name.lang
 %makeinstall_std
 rm -f %buildroot%_libdir/{nautilus/extensions-3.0,%name}/lib*.la
 rm -rf %buildroot%_datadir/doc/%{name}*
@@ -60,14 +56,10 @@ rm -rf %buildroot%_datadir/doc/%{name}*
 %find_lang nautilus-actions-config-tool --with-gnome
 cat nautilus-actions-config-tool.lang >> %name.lang
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %triggerun -- %name < 3.1.0
 %_libdir/%name/na-gconf2key.sh -delete -nodummy &>/dev/null ||:
 
 %files -f %name.lang
-%defattr(-,root,root)
 %doc AUTHORS README TODO NEWS MAINTAINERS
 %doc docs/objects-hierarchy.odg
 %_bindir/*
@@ -79,7 +71,5 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/%name
 
 %files devel
-%defattr(-,root,root)
 %_includedir/%name
 %_datadir/gtk-doc/html/nautilus-actions-3/
-
