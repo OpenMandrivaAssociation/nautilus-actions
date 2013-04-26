@@ -1,12 +1,8 @@
-%define name nautilus-actions
-%define version 3.2.2
-%define release %mkrel 1
-
 %define major 1
 Summary: Configurable context menu for Nautilus
-Name: %{name}
-Version: %{version}
-Release: %{release}
+Name:    nautilus-actions
+Version: 3.2.2
+Release: 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -16,7 +12,7 @@ BuildRequires: unique-devel
 BuildRequires: libgtop2.0-devel
 BuildRequires: pkgconfig(gtk+-2.0)
 BuildRequires: pkgconfig(gconf-2.0)
-BuildRequires: libsm-devel
+BuildRequires: pkgconfig(libSM)
 BuildRequires: pkgconfig(uuid)
 BuildRequires: intltool
 BuildRequires: pkgconfig(gnome-doc-utils)
