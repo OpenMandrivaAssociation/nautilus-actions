@@ -37,7 +37,7 @@ Install this if you want to build extensions for %name.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %configure2_5x --disable-schemas-install
