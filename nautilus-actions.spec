@@ -7,6 +7,11 @@ Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: https://www.nautilus-actions.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: nautilus-devel >= 2.8.0
 BuildRequires: unique-devel
 BuildRequires: libgtop2.0-devel
